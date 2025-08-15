@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Interactivo de DAX</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #005c99;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            border-radius: 4px;
+            transition: width 0.5s ease-in-out;
+        }
+        .module {
+            display: none;
+        }
+        .module.active {
+            display: block;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question p {
+            font-weight: bold;
+        }
+        .quiz-options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .completion-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Curso Interactivo de DAX</h1>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+
+        <!-- Módulo 1 -->
+        <div id="module1" class="module active">
+            <h2>Módulo 1: Introducción a DAX</h2>
+            <p>DAX (Data Analysis Expressions) es un lenguaje de fórmulas utilizado en Power BI, Analysis Services y Power Pivot en Excel. Permite a los usuarios definir cálculos personalizados en tablas y columnas calculadas. DAX incluye una biblioteca de más de 200 funciones, operadores y constantes para crear fórmulas y expresiones flexibles.</p>
+            <h3>Test de Autoevaluación</h3>
+            <div class="quiz-question">
+                <p>1. ¿Qué es DAX?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="a"> Un lenguaje de programación para crear sitios web.</label>
+                    <label><input type="radio" name="q1" value="b"> Un lenguaje de fórmulas para análisis de datos.</label>
+                    <label><input type="radio" name="q1" value="c"> Un sistema de gestión de bases de datos.</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>2. ¿En qué producto de Microsoft NO se utiliza DAX de forma nativa?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="a"> Power BI</label>
+                    <label><input type="radio" name="q2" value="b"> Microsoft Word</label>
+                    <label><input type="radio" name="q2" value="c"> Excel (Power Pivot)</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>3. Los dos tipos principales de cálculos que puedes crear con DAX son:</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="a"> Columnas calculadas y Medidas.</label>
+                    <label><input type="radio" name="q3" value="b"> Gráficos y Tablas.</label>
+                    <label><input type="radio" name="q3" value="c"> Funciones y Procedimientos.</label>
+                </div>
+            </div>
+            <button onclick="nextModule(2)">Siguiente Módulo</button>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div id="module2" class="module">
+            <h2>Módulo 2: Funciones de Agregación e Iteración</h2>
+            <p>Las funciones de agregación como SUM, AVERAGE y COUNT resumen datos de una columna. Las funciones de iteración (identificadas por una 'X' al final, como SUMX) realizan cálculos fila por fila sobre una tabla y luego agregan los resultados. CALCULATE es la función más potente de DAX, ya que permite modificar el contexto de filtro en el que se evalúa una expresión.</p>
+            <h3>Test de Autoevaluación</h3>
+            <div class="quiz-question">
+                <p>1. ¿Qué función usarías para sumar los valores de la columna "Ventas"?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4" value="a"> ADD()</label>
+                    <label><input type="radio" name="q4" value="b"> SUM()</label>
+                    <label><input type="radio" name="q4" value="c"> TOTAL()</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>2. ¿Cuál es la principal diferencia entre SUM y SUMX?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5" value="a"> SUMX es más rápida que SUM.</label>
+                    <label><input type="radio" name="q5" value="b"> SUM opera sobre una columna, mientras que SUMX itera sobre una tabla.</label>
+                    <label><input type="radio" name="q5" value="c"> No hay diferencia, son sinónimos.</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>3. ¿Qué función te permite cambiar el contexto de filtro de un cálculo?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q6" value="a"> FILTER()</label>
+                    <label><input type="radio" name="q6" value="b"> CALCULATE()</label>
+                    <label><input type="radio" name="q6" value="c"> MODIFY()</label>
+                </div>
+            </div>
+            <button onclick="nextModule(3)">Siguiente Módulo</button>
+        </div>
+
+        <!-- Módulo 3 -->
+        <div id="module3" class="module">
+            <h2>Módulo 3: Inteligencia de Tiempo</h2>
+            <p>La inteligencia de tiempo es una de las características más destacadas de DAX. Permite realizar cálculos complejos basados en el tiempo, como acumulados anuales (YTD), trimestrales (QTD) y mensuales (MTD), así como comparar datos con períodos anteriores (por ejemplo, ventas del mismo período del año anterior) con funciones como SAMEPERIODLASTYEAR.</p>
+            <h3>Test de Autoevaluación</h3>
+            <div class="quiz-question">
+                <p>1. ¿Qué significa "YTD"?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q7" value="a"> Year to Date (Año hasta la fecha)</label>
+                    <label><input type="radio" name="q7" value="b"> Yesterday's Total Data (Datos totales de ayer)</label>
+                    <label><input type="radio" name="q7" value="c"> Yearly Trend Data (Datos de tendencia anual)</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>2. ¿Qué función usarías para comparar las ventas de este año con las del año pasado?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q8" value="a"> PREVIOUSYEAR()</label>
+                    <label><input type="radio" name="q8" value="b"> SAMEPERIODLASTYEAR()</label>
+                    <label><input type="radio" name="q8" value="c"> LASTYEARSALES()</label>
+                </div>
+            </div>
+             <div class="quiz-question">
+                <p>3. Para que las funciones de inteligencia de tiempo funcionen correctamente, ¿qué es indispensable tener en el modelo de datos?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q9" value="a"> Una tabla de productos.</label>
+                    <label><input type="radio" name="q9" value="b"> Una tabla de calendario marcada como tal.</label>
+                    <label><input type="radio" name="q9" value="c"> Conexión a internet.</label>
+                </div>
+            </div>
+            <button onclick="nextModule(4)">Siguiente Módulo</button>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div id="module4" class="module">
+            <h2>Módulo 4: Relaciones y Tablas</h2>
+            <p>Las relaciones en Power BI propagan filtros entre tablas. La función FILTER devuelve una tabla que es un subconjunto de otra tabla. ALL ignora todos los filtros aplicados a una tabla, lo cual es útil para calcular porcentajes del total. VALUES devuelve una tabla de una sola columna con los valores únicos de la columna especificada.</p>
+            <h3>Test de Autoevaluación</h3>
+            <div class="quiz-question">
+                <p>1. ¿Qué función usarías para crear una tabla virtual que solo contenga las ventas de "España"?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q10" value="a"> FILTER()</label>
+                    <label><input type="radio" name="q10" value="b"> SELECT()</label>
+                    <label><input type="radio" name="q10" value="c"> FIND()</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>2. Si quieres calcular el porcentaje de ventas de una categoría sobre el total de todas las categorías, ¿qué función es clave?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q11" value="a"> IGNOREFILTERS()</label>
+                    <label><input type="radio" name="q11" value="b"> ALL()</label>
+                    <label><input type="radio" name="q11" value="c"> TOTAL()</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>3. La función VALUES() devuelve:</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q12" value="a"> El primer valor de una columna.</label>
+                    <label><input type="radio" name="q12" value="b"> Una lista de valores únicos de una columna.</label>
+                    <label><input type="radio" name="q12" value="c"> Todos los valores de una columna, incluyendo duplicados.</label>
+                </div>
+            </div>
+            <button onclick="nextModule(5)">Siguiente Módulo</button>
+        </div>
+
+        <!-- Módulo 5 -->
+        <div id="module5" class="module">
+            <h2>Módulo 5: Medidas Avanzadas y KPIs</h2>
+            <p>Las variables (declaradas con VAR) son una excelente práctica en fórmulas DAX complejas. Permiten almacenar el resultado de una expresión para reutilizarlo, mejorando la legibilidad y la eficiencia. Los KPIs (Key Performance Indicators) son representaciones visuales que miden el progreso hacia un objetivo y son fundamentales en los cuadros de mando.</p>
+            <h3>Test de Autoevaluación</h3>
+            <div class="quiz-question">
+                <p>1. ¿Cuál es la palabra clave para declarar una variable en DAX?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q13" value="a"> LET</label>
+                    <label><input type="radio" name="q13" value="b"> VARIABLE</label>
+                    <label><input type="radio" name="q13" value="c"> VAR</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>2. ¿Cuál es un beneficio de usar variables en DAX?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q14" value="a"> Hacen que el informe se actualice más rápido.</label>
+                    <label><input type="radio" name="q14" value="b"> Mejoran la legibilidad y el rendimiento de las fórmulas.</label>
+                    <label><input type="radio" name="q14" value="c"> Permiten conectar a más fuentes de datos.</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>3. ¿Qué significa KPI?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q15" value="a"> Key Programming Interface (Interfaz de Programación Clave)</label>
+                    <label><input type="radio"name="q15" value="b"> Key Performance Indicator (Indicador Clave de Rendimiento)</label>
+                    <label><input type="radio" name="q15" value="c"> Key Process Information (Información Clave de Proceso)</label>
+                </div>
+            </div>
+            <button onclick="nextModule(6)">Finalizar Curso</button>
+        </div>
+        
+        <!-- Mensaje de finalización -->
+        <div id="completion" class="module">
+            <div class="completion-message">
+                <h2>¡Felicidades!</h2>
+                <p>Has completado el curso interactivo de DAX.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const totalModules = 5;
+        let currentModule = 1;
+
+        function nextModule(moduleNumber) {
+            // Ocultar módulo actual
+            document.getElementById('module' + currentModule).classList.remove('active');
+
+            // Actualizar número de módulo
+            currentModule = moduleNumber;
+
+            if (currentModule <= totalModules) {
+                // Mostrar siguiente módulo
+                document.getElementById('module' + currentModule).classList.add('active');
+            } else {
+                // Mostrar mensaje de finalización
+                document.getElementById('completion').classList.add('active');
+            }
+
+            // Actualizar barra de progreso
+            const progress = (currentModule - 1) / totalModules * 100;
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = Math.round(progress) + '%';
+            
+            if (currentModule > totalModules){
+                progressBar.style.width = '100%';
+                progressBar.textContent = '100%';
+            }
+        }
+    </script>
+
+</body>
+</html>
